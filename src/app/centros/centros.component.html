@@ -1,0 +1,50 @@
+<table>
+	<tr>
+		<th>CÓDIGO</th>
+		<th>NOMBRE</th>
+		<th>DINERO POR ANIMAL</th>
+		<th>ANIMALES LIBERADOS</th>
+		<th>FINANCIACIÓN</th>
+		<th>ANIMALES REFUGIADOS</th>
+	</tr>
+	<tr *ngFor="let centro of centros;">
+		<td>{{centro.codigo}}</td>
+		<td><a routerLink="/centro/{{centro.codigo}}">{{centro.nombre}}</a></td>
+		<td>{{centro.dinero_animal}}</td>
+		<td>{{centro.animalesLiberados}}</td>
+		<td>{{centro.financiacion}}</td>
+		<td>{{centro.animalesRefugiados}}</td>
+	</tr>
+</table>
+<br>
+<b>Un nuevo centro se añade a nuestra organización!</b>
+<br><br>
+<table>
+	<tr>
+		<th class="">Código:</th>
+		<th><input #centroCodigo /></th>
+	</tr>
+	<tr>
+		<th class="">Nombre:</th>
+		<th><input #centroNombre /></th>
+	</tr>
+	<tr>
+		<th class="">Animales liberados!</th>
+		<th><input #centroLiberados /></th>
+	</tr>
+	<tr>
+		<th class="">Financiación:</th>
+		<th><input #centroFinanciacion /></th>
+	</tr>
+	<tr>
+		<th class="">Animales refugiados actualmente:</th>
+		<th><input #centroRefugiados /></th>
+	</tr>
+	<tr>
+		<th colspan="2"><button
+    (click)="add(centroCodigo.value, centroNombre.value, centroLiberados.value, centroFinanciacion.value, centroRefugiados.value); centroCodigo.value=''; centroNombre.value=''; centroLiberados.value=''; centroFinanciacion.value=''; centroRefugiados.value=''"
+  >
+    NUEVO CENTRO!
+  </button></th>
+	</tr>
+</table>

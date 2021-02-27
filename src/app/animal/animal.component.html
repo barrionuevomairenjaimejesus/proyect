@@ -1,0 +1,25 @@
+<div *ngIf="animal != undefined">
+	<h2>Editar datos del animal: {{animal.nombre}} !</h2>
+	<table>
+		<tr>
+			<th>Especie:</th>
+			<td><input #animalEspecie placeholder="{{animal.especie}}" /></td>
+		</tr>
+		<tr>
+			<th>Nombre:</th>
+			<td><input #animalNombre placeholder="{{animal.nombre}}" /></td>
+		</tr>
+		<tr>
+			<th>Peso:</th>
+			<td><input #animalPeso placeholder="{{animal.peso}}" /></td>
+		</tr>
+		<tr>
+			<th>Altura:</th>
+			<td><input #animalAltura placeholder="{{animal.altura}}" /></td>
+		</tr>
+		<tr>
+			<td><button (click)="goBack()">Volver a animales</button></td>
+			<td><button (click)="save(animalEspecie.value, animalNombre.value, animalPeso.value, animalAltura.value)">Cambiar animal!</button>
+			</td>
+		</tr>
+	</table>

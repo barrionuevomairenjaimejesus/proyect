@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  background-color: rgb(255, 216, 157);
+  font-family: Comic Sans, Impact;
+}
+table {
+  text-align: center;
+}
+
+th.pos {
+  text-align: right;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: rgb(250, 139, 3);
+  color: black;
+}
+
+td {
+  background-color: rgb(255, 255, 255);
+}

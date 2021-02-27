@@ -1,0 +1,86 @@
+<div *ngIf="centro != undefined">
+
+	<h1>{{centro.nombre}}</h1>
+
+	<table>
+		<tr>
+			<th>Animales liberados:</th>
+			<td>
+				<input #centroLiberados placeholder="{{centro.animalesLiberados}}" />
+    </td>
+		</tr>
+		<tr>
+			<th>Financiación:</th>
+			<td><input #centroFinanciacion placeholder="{{centro.financiacion}}" /></td>
+		</tr>
+		<tr>
+			<th>Animales refugiados:</th>
+			<td>
+				<input #centroRefugiados placeholder="{{centro.animalesRefugiados}}" />
+    </td>
+		</tr>
+		<tr>
+			<td><button (click)="goBack()">Centros</button></td>
+			<td>
+				<button
+        (click)="save( centroLiberados.value, centroFinanciacion.value, centroRefugiados.value)"
+      >
+        Guardar cambios
+      </button>
+			</td>
+		</tr>
+	</table>
+
+	<h2>Animales</h2>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>ESPECIE</th>
+			<th>NOMBRE</th>
+			<th>PESO</th>
+			<th>ALTURA</th>
+			<th>LIBERAR</th>
+		</tr>
+		<tr *ngFor="let a of centro.animales">
+			<td>{{a.id}}</td>
+			<td>{{a.especie}}</td>
+			<td><a routerLink="/animal/{{a.id}}&{{a.centro}}">{{a.nombre}}</a></td>
+			<td>{{a.peso}}</td>
+			<td>{{a.altura}}</td>
+			<td><button (click)="delete(a)">F</button></td>
+		</tr>
+	</table>
+	<br><br>
+	<b>Opción AÑADIR nuevo animal al centro {{centro.nombre}}</b>
+	<br><br>
+	<table>
+		<tr>
+			<th class="">Id:</th>
+			<th><input #animalId /></th>
+		</tr>
+		<tr>
+			<th class="">Especie:</th>
+			<th><input #animalEspecie /></th>
+		</tr>
+		<tr>
+			<th class="">Nombre:</th>
+			<th><input #animalNombre /></th>
+		</tr>
+		<tr>
+			<th class="">Peso:</th>
+			<th><input #animalPeso /></th>
+		</tr>
+		<tr>
+			<th class="">Altura:</th>
+			<th><input #animalAltura /></th>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<button
+        (click)="add(animalId.value, animalEspecie.value, animalNombre.value,  animalPeso.value, animalAltura.value); animalId.value=''; animalEspecie.value=''; animalNombre.value='';animalPeso.value=''; animalAltura.value=''; "
+      >
+        NUEVO ANIMAL!
+      </button>
+			</th>
+		</tr>
+	</table>
